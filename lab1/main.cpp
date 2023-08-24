@@ -15,9 +15,12 @@ bool esVocal(char caracter2){
 
 }
 
+
+
+
 int main()
 {
-    int n = 1;
+    int n = 2;
 
 
     switch (n){
@@ -32,7 +35,6 @@ int main()
         if (caracter >= 'A' && caracter <= 'Z' || caracter >= 'a' && caracter <= 'z'){
             vocal = esVocal(caracter);
 
-
             if(vocal){
                 cout << caracter << " es una vocal." << endl;
             }else{
@@ -46,22 +48,30 @@ int main()
         break;
 
 
-
-
-
-
     case 2:
-        cout << "Hola mundo 2" << endl;
+
+        int money = 0, total = 0;
+        cout << "Ha elegido el problema 2" << endl;
+        cout << "Ingrese una cantidad de dinero:"<<endl;
+        cin >> money;
+
+        int cambio[10] = {50000, 20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50};
+
+        for(int i = 0; i <= 10; i++){
+            cout << cambio[i] << " : "<<money/cambio[i] << endl;
+            money = money - ( (money/cambio[i]) * cambio[i]);
+        }
+
         break;
 
-    case 3:
-        cout << "Hola mundo 3" << endl;
-        break;
-    }
+
 
 
 
     return 0;
+
+    }
 }
+
 
 
