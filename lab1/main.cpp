@@ -16,14 +16,22 @@ bool esVocal(char caracter2){
 }
 
 // Funciones punto 4
-
+bool isHour(int hour){
+    if(hour / 100 > 23){
+        return false;
+    }else if( hour % 100 > 59){
+        return false;
+    }else{
+        return true;
+    }
+}
 
 
 
 int main()
 {
     int n = 2;
-    while(n != 0){
+
 
         cout << "Ingresa el numero del problema que desea observar:"<< endl;
         cin >> n;
@@ -120,6 +128,29 @@ int main()
 
         case 4:{
 
+            int hour = 0, duty = 0;
+
+            cout << "Usted ha elegido el problema 3:"<<endl;
+            cout << "Ingrese la hora en formato HH:MM" << endl;
+            cin >> hour;
+            cout << isHour(hour);
+
+            if(isHour(hour) == 0){
+                cout << hour << " es un tiempo invalido" << endl;
+                break;
+            }
+            cout << "Ingrese la duracion de la hora en formato HH:MM" << endl;
+            cin >> duty;
+
+            if(isHour(duty) == 0){
+                cout << duty << " es un tiempo invalido" << endl;
+                break;
+            }
+
+
+
+
+
 
 
 
@@ -128,7 +159,6 @@ int main()
 
     return 0;
 
-    }
 }
 
 
