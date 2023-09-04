@@ -531,6 +531,110 @@ int main()
 
         }
 
+        case 15:{
+            int ingreso, fila, columna, topes= 3, c = 1, ban = 1, agregar = 1, ban2 = 1, aumentot = 4, sumatoria = 0, arriba, abajo = 0;
+            cout << "Ingrese el tamaño (debe ser impar): ";
+                    cin >> ingreso;
+            while(ingreso%2 == 0){
+                cout << "Ingrese el tamaño (DEBE SER IMPAR): ";
+                        cin >> ingreso;
+            }
+            int mimatriz[ingreso][ingreso];
+            fila = ingreso/2;
+            columna = fila;
+            for(int i = 1;columna < ingreso; i++){
+                if(i==1){
+                        mimatriz[fila][columna] = i;
+                }
+                else if(i==2){
+                        columna += 1;
+                        agregar += 1;
+                        mimatriz[fila][columna] = agregar;
+                        fila += 1;
+                        agregar += 1;
+                        mimatriz[fila][columna] = agregar;
+                }
+                else{
+                        if(ban == 1){
+                            for(int t=1; t <= c; t++){
+                                if(agregar==topes){
+                                    topes += aumentot;
+                                    c += 1;
+                                    aumentot += 2;
+                                }
+                                if(ban2==1){
+                                    columna -= 1;
+                                    if(t==c){
+                                        ban2 = 0;
+                                    }
+                                }
+                                else{
+                                    columna += 1;
+                                    if(columna == ingreso){
+                                        break;
+                                    }
+                                    if(t==c){
+                                        ban2 = 1;
+                                    }
+                                }
+                                agregar += 1;
+                                mimatriz[fila][columna] = agregar;
+                            }
+                            ban = 0;
+                        }
+                        else{
+                            for(int t=1; t <= c; t++){
+                                if(agregar==topes){
+                                    topes += aumentot;
+                                    c += 1;
+                                    aumentot += 2;
+                                }
+                                if(ban2==0){
+                                    fila -= 1;
+                                }
+                                else{
+                                    fila += 1;
+                                }
+                                agregar += 1;
+                                mimatriz[fila][columna] = agregar;
+                            }
+                            ban = 1;
+                        }
+                }
+            }
+            arriba = ingreso - 1;
+            for(int i = 0; i < ingreso;i++){
+                sumatoria += mimatriz[i][i];
+                if(arriba != (ingreso/2) && abajo != (ingreso/2)){
+                        sumatoria += mimatriz[arriba][abajo];
+                }
+                arriba--;
+                abajo++;
+
+            }
+            cout << "En una espiral de " << ingreso << "x" << ingreso << ", la suma es " << sumatoria << endl << endl;
+            cout << "Espiral: "<< endl;
+            for(int i = 0; i < ingreso; i++){
+                for(int t= 0; t < ingreso; t++){
+                        if(mimatriz[t][i]/10 < 1){
+                            cout << "   " << mimatriz[i][t] << " ";
+                        }
+                        else if(mimatriz[t][i]/100 < 1){
+                            cout << "  " << mimatriz[i][t] << " ";
+                        }
+                        else if(mimatriz[t][i]/1000 < 1){
+                            cout << " " << mimatriz[i][t] << " ";
+                        }
+                        else{
+                            cout << mimatriz[i][t] << " ";
+                        }
+                }
+                cout << endl;
+            }
+            return 0;
+            break;
+        }
+
 
 
 
