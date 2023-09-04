@@ -407,6 +407,131 @@ int main()
             cout<<"El primo numero "<<enesimo<<" es "<<i<<endl;
             break;
         }
+        case 11:{
+            {
+                int entero, ban, MCM; //Declaración de variables
+                cout << "Ingrese el numero: ";
+                cin >> entero; //Asigna la captura a la variable entero
+                for(int i = (entero*2); i > 0; i++){ //Declara e inicializa la variable i en el valor de la variable entero multiplicado por dos, termina cuando i sea menor o igual a 0, incrementa i de 1 en 1
+                        ban = 1; // le asigna el numero 1 a la variable ban
+                        for(int t = 1; t<=entero; t++){ //Declara e inicializa la variable t en 1, termina cuando el valor de t sea mayor que el valor de entero, incrementa t de 1 en 1
+                            if(i%t!=0){ //Si el residuo de la división i/t es diferente de 0, haga lo sigiente:
+                                ban = 0; // Le asigna el número 0 a la variable ban
+                                break;} //Rompe el ciclo
+                        }
+                        if(ban==1){ //Si la variable ban es igual a 1
+                            MCM = i; //A la variable MCM le asigna el valor de i
+                            break; //Rompe el ciclo
+                        }
+                }
+                cout << "El minimo comun multiplo es: " << MCM << endl; //Imprime el minimo común múltiplo
+                break;
+
+            }
+        }
+        case 12:{
+            {
+                int entero, primo = 1, ban, maximo; //Declaración de variables
+                cout << "Ingrese el numero entero: ";
+                cin >> entero; //Guarda la captura en la variable entero
+                for(int i=2;i < entero;i++){ //Declara e inicializa la variable i en 2, termina cuando i sea mayor que entero e incrementa la variable i de uno en uno
+                        ban = 1; // Le asigna el numero 1 a la variable ban
+                        if(i<10){ //Si i es menor que diez, haga lo siguiente:
+                            for(int t = 2;t < i; t++){ //Declara e inicializa la variable t en 2, termina cuando t sea mayor que i e incrementa la variable t de uno en uno
+                                if(i%t==0){ // si el residuo de la división i/t es 0, haga lo siguiente:
+                                    ban = 0; //Le asigna el numero 0 a la variable ban
+                                    break;} //ROmpe el ciclo
+                            }
+                        }
+                        else{ //Si la condición anterior no se cumplió, haga lo siguiente:
+                            for(int t=2; t<i; t++){ //Declara e inicializa la variable t en 2, termina cuando t sea mayor que i e incrementa la variable t de uno en uno
+                                if(i%t==0){ //Si el reiduo de la división i/t es 0, haga lo siguiente:
+                                    ban = 0; //Le asigna el numero 0 a la variable ban
+                                    break;} //Rompe el ciclo
+                            }
+                        }
+                        if(ban==1){ //Si ban es igual a 1, haga lo siguiente
+                            primo = i; // A la variable primo, asígnele el valor de la variable i
+                        }
+                        if(entero%primo==0){ // Si el residuo de la división entero/primo es igual a 0, haga lo siguiente
+                            maximo = primo; //a la variable máximo asígnele el valor de la variable primo
+                        }
+                }
+                cout << "El mayor factor primo de " << entero << " es " << maximo << endl; //Imprime el mayor factor primo
+            }
+            break;
+        }
+        case 13:{
+            {
+                int entero, ban, sumatoria = 0; //Declaración de variables
+                cout << "Ingrese el numero entero: ";
+                cin >> entero; //Asigna la captura a la variable entero
+                for(int i=2;i < entero;i++){ //Declara e inicializa la variable i en 2, termina cuando i sea igual o mayor que entero e incrementa la variable i de uno en uno
+                        ban = 1; // Se le asigna el numero uno a la variable ban
+                        if(i<10){ //Si i es menor que diez, haga lo siguiente:
+                            for(int t = 2;t < i; t++){ //Declara e inicializa la variable t en 2, termina cuando t sea igual o mayor que i e incrementa la variable t de uno en uno
+                                if(i%t==0){ //Si el residuo de la división i/t es igual a 0, haga lo siguiente:
+                                    ban = 0; //Se le asigna el numero cero a la variable ban
+                                    break;} //Rompe el ciclo
+                            }
+                        }
+                        else{
+                            for(int t=2; t<i; t++){
+                                if(i%t==0){ //Si el residuo de la división i/t es igual a 0, haga lo siguiente:
+                                    ban = 0; //Se le asigna el numero cero a la variable ban
+                                    break;} //Rompe el ciclo
+                            }
+                        }
+                        if(ban==1){ //Si el valor de la variable ban es igual a 1, haga lo siguiente:
+                            sumatoria += i; //En la variable sumatoria se le asigna el valor del resultado de la suma entre sumatoria e i
+                        }
+                }
+                cout << "El resultado de la suma es: " << sumatoria << endl; //Imprime el valor de la sumatoria
+                return 0;
+                break;
+            }
+        }
+        case 14:{
+
+            {
+                int Mpalindromo = 10000, operacion, residuo, sumatoria, unidades, ent1, ent2, ban; //Declaración de variables
+                for(int i = 999;i > 100;i--){ //Declara e inicializa la variable i en 999, termina cuando i sea menor que 100 y decrementa la variable i de uno en uno
+                        for(int t = 999;t*i > Mpalindromo;t--){ //Declara e inicializa la variable t en 999, termina cuando t*i sea menor que Mpalíndromo y decrementa la variable i de uno en uno
+                            if(t < 100){ //Si t es menor que cero, haga lo siguiente
+                                ban = 0; //Se le asigna el numero 0 a la variable ban
+                                break; //ROmpe el ciclo
+                            }
+                            operacion = t*i; //A operación se le asigna el resultado de t*i
+                            sumatoria = 0; //A sumatoria se le asigna el número 0
+                            if(operacion > 99999){ //Si operacion es mayor que 99999, haga lo siguiente
+                                unidades = 100000;} //A unidades se le asigna 100000
+                            else{ //SI la condición anterior no se cumple, haga lo siguiente
+                                unidades = 10000;} //A unidades se le asigna 10000
+                            while(operacion > 1){ //Mientras operación sea mayor que 1
+                                residuo = operacion%10; //EN residuo se guarda el residuo de la división operación/10
+                                operacion = operacion/10; //En operación se guarda el resultado de la división operación/10
+                                sumatoria += residuo*unidades; //En sumatoria se suma el valor del producto entre residuo y unidades
+                                unidades /= 10; //En unidades se guarda el valor de unidades /10
+                            }
+                            if(sumatoria == (t*i)){ //SI sumatoria es igual al producto entre t*i
+                                Mpalindromo = t*i; // A Mpalíndromo se le guarda el resultado del producto entre t*i
+                                ent1 = i; //En ent1 se guarda el valor de i
+                                ent2= t; // EN ent2 se guarda el valor de t
+                                ban = 1; //A la variable ban se le asigna el numero 1
+                                break; //Rompe el ciclo
+                            }
+                        }
+                        if(ban==1){ //Si el valor de la variable ban es igual a 1
+                            break; //Rompe el ciclo
+                        }
+                }
+                cout << ent1 << "*" << ent2 << " = " << Mpalindromo << endl; //Imprime los dos números de 3 cifras que generan el mayor número palíndromo
+                break;
+            }
+
+        }
+
+
 
 
 
