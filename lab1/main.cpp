@@ -214,7 +214,52 @@ int main()
 
         }
         case 5:{
-            cout << " En proceso "<< endl;
+            int n = 0,k = 0;
+            char ast = '*';
+
+            cout<<"Ingrese un numero impar: "<<endl;
+            cin>>n;
+
+            int m=n/2;
+
+            if (n%2==0){
+                cout<<"Unicamente funciono con numeros impares"<<endl;
+            }
+
+            else{
+                for(int i=0;i<n;i++){
+                        //Parte arriba
+                        if (i<=m){
+                            for(int j=m;j>i;j--){//For para los espacios de la izquierda
+                                cout<<" ";
+                                k++;
+                            }
+                            for(int j=0;j<n-(2*k);j++){//For para los asteriscos
+                                cout<<ast;
+                            }
+                            for(int j=m;j>i;j--){//For para los espacios de la derecha
+                                cout<<" ";
+                            }
+                            cout<<endl;
+                            k=0;
+                        }
+                        // Parte abajo
+                        if(i>m){
+                            for(int j=i;j>m;j--){//For para los espacios de la izquierda.
+                                cout<<" ";
+                                k++;
+                            }
+                            for(int j=0;j<n-(2*k);j++){//For para los asteriscos
+                                cout<<ast;
+                            }
+                            for(int j=i;j>m;j--){//For para los espacios de la derecha
+                                cout<<" ";
+                            }
+                            cout<<endl;
+                            k=0;
+                        }
+                }
+            }
             break;
         }
         case 6:{
