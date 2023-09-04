@@ -82,6 +82,30 @@ int fibonacci(int lim){
 
 }
 
+//Funcion para el punto 9
+int potencia (int base, int exponente)
+{
+    int resultado = 1;
+    for (int i = 0; i < exponente; i++) {
+        resultado *= base;
+    }
+    return resultado;
+}
+
+//Funcion para el punto 10
+bool primo(int enesimo){
+    if (enesimo>1){
+        for (int i=2;i<=enesimo;i++){
+            if(enesimo%i==0 and i<enesimo){
+                return false;
+            }
+        }
+    }
+    else
+        return false;
+    return true;
+}
+
 int main()
 {
     int n;
@@ -281,16 +305,109 @@ int main()
         }
 
         case 7:{
-            int lim = 0;
-            cout << "Usted ha elegido el problema 7: "<< endl;
-            cout << "Ingrese el número hasta el cual desea que se genere la serie de fibonacci: " << endl;
-            cin >> lim;
-
-            fibonacci(lim);
-
-            cout << fibonacci(lim) << endl;
+            int n, a=1, b=1, c=0, sumatoria = 0;
+            cout << "Ingrese un numero dentro de la serie de Fibonnacci : ";
+            cin >> n;
+            for(int i = 1; i < n;i++){
+                if(i == 1){
+                        c = b;
+                        b += a;
+                }
+                else{
+                        c = b;
+                        b += a;
+                        a = c;
+                }
+                if(b % 2 == 0){
+                        sumatoria += b;
+                }
+                if(b >= n){
+                        break;
+                }
+            }
+            cout << "El resultado de la suma es: " << sumatoria << endl; //Imprime el resultado de la suma
+            return 0;
+            break;
 
         }
+        case 8:{
+            int a,b,c,m1=0,m2=0,suma=0,menor=0,mayor=0;
+            cout << "ingresa el primer numero: " << endl;
+            cin>>a;
+            cout<<" ingresa el segundo numero: "<<endl;
+            cin>>b;
+            cout<<" ingresa el tercer numero: "<<endl;
+            cin>>c;
+            while(a<c and b<c){
+                for (int i =1;i<=c;i++){
+                        if (a<=b)
+                            menor=a;
+                        mayor=b;
+                        if (a>=b){
+                            menor=b;
+                            mayor=a;
+                        }
+                        m1=menor*i;
+                        if (m1<c){
+                            suma=suma+m1;
+                            cout<<m1<<"+";
+                        }
+                        else{
+                            break;
+                        }
+                        m2=mayor*i;
+                        if (m2<c and m2%menor !=0){
+                            suma=suma+m2;
+                            cout<<m2<<"+";
+                        }
+                }
+                cout<<"="<<suma<<endl;
+                return 0;
+                break;
+            }
+        }
+
+        case 9:{
+            {
+                {
+                        int numero, digito, suma = 0;
+
+                        // Pedir al usuario que ingrese un número entero
+                        cout << "Ingrese un numero: "<<endl;
+                        cin >> numero;
+
+                        // Iterar a través de cada dígito del número y sumar su potencia
+                        int temp = numero;
+                        while (temp != 0) {
+                            digito = temp % 10; // Obtener el último dígito
+                            suma += potencia(digito, digito); // Sumar la potencia del dígito a la suma
+                            temp /= 10; // Eliminar el último dígito del número
+                        }
+
+                        // Imprimir el resultado de la suma
+                        cout << "El resultado de la suma es: " << suma << endl;
+                }
+                break;
+
+            }
+        }
+        case 10:{
+            bool esPrimo = false;
+            int enesimo=0,i=1,c=0;
+            cout<<"Ingrese el enesimo numero primo que desea saber: "<<endl;
+            cin>>enesimo;
+            while(c < enesimo){
+                i++;
+                esPrimo = primo(i);
+                if(esPrimo == 1)
+                {
+                        c++;
+                }
+            }
+            cout<<"El primo numero "<<enesimo<<" es "<<i<<endl;
+            break;
+        }
+
 
 
 
