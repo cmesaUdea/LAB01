@@ -106,6 +106,26 @@ bool primo(int enesimo){
     return true;
 }
 
+//Funcion para el punto 16
+int seriecollatz(int m){
+    int modulo=0;
+    int conta=0;
+    while (m!=1){
+        modulo = m%2;
+        if (modulo == 0){
+            conta+=1;
+            m=m/2;
+        }
+
+        if (modulo!=0){
+            conta+=1;
+            m=(3*m)+1;
+        }
+    }
+    conta+=1;
+    return conta;
+}
+
 int main()
 {
     int n;
@@ -631,6 +651,38 @@ int main()
                 }
                 cout << endl;
             }
+            return 0;
+            break;
+        }
+        case 16:{
+            int n=0,comparador=0,semilla=0,modulo=0;
+            cout<<"Ingrese el numero: ";
+            cin>>n;
+            comparador=seriecollatz(n-1);// Se inicia en el menor al ingresado
+
+            for (int i=(n-1);i>1;i--){
+                if(seriecollatz(i)>=comparador){
+                        // Cambia el valor del comparador
+                        comparador=seriecollatz(i);
+                        semilla=i;
+                }
+            }
+            cout<<"La serie mas larga es con la semilla: "<<semilla<<" teniendo: "<<comparador<<" terminos."<<endl;
+            while (semilla!=1){
+                modulo = semilla%2;
+                // Condiciones para que imprima la serie
+                if (modulo == 0){
+
+                        cout<<semilla<<endl;
+                        semilla=semilla/2;
+                }
+
+                if (modulo!=0){
+                        cout<<semilla<<endl;
+                        semilla=(3*semilla)+1;
+                }
+            }
+            cout<<semilla<<endl;
             return 0;
             break;
         }
